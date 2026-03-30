@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="auth-body">
+
+    <div class="bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="auth-page">
+        <div class="auth-shell">
+            <section class="auth-hero">
+                <div class="auth-badge">Flowy ✨</div>
+                <h1>Flow into your flow state</h1>
+                <p>
+                    Your soft little wellness dashboard for habits, hydration,
+                    reminders, rest, and daily reset moments.
+                </p>
+
+                <div class="hero-mini-cards">
+                    <div class="mini-card">
+                        <span>💧</span>
+                        <p>Track water</p>
+                    </div>
+                    <div class="mini-card">
+                        <span>🌙</span>
+                        <p>Log sleep</p>
+                    </div>
+                    <div class="mini-card">
+                        <span>🫶</span>
+                        <p>Stay grounded</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="auth-card">
+                <div class="tab-header">
+                    <button class="tab-button active" id="showLogin">Login</button>
+                    <button class="tab-button" id="showRegister">Register</button>
+                </div>
+
+                <div id="loginPanel" class="auth-panel active">
+                    <h2>Welcome back</h2>
+                    <p class="auth-text">Pick up where you left off.</p>
+
+                    <div class="auth-field">
+                        <label for="logUser">Username</label>
+                        <input id="logUser" type="text" placeholder="Enter your username">
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="logPass">Password</label>
+                        <input id="logPass" type="password" placeholder="Enter your password">
+                    </div>
+
+                    <button class="auth-submit" onclick="login()">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Login
+                    </button>
+                </div>
+
+                <div id="registerPanel" class="auth-panel">
+                    <h2>Create your account</h2>
+                    <p class="auth-text">Start building your little flow routine.</p>
+
+                    <div class="auth-field">
+                        <label for="regUser">Username</label>
+                        <input id="regUser" type="text" placeholder="Choose a username">
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="regPass">Password</label>
+                        <input id="regPass" type="password" placeholder="Create a password">
+                    </div>
+
+                    <button class="auth-submit" onclick="register()">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Register
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowy Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="topbar">
+            <div>
+                <h1>Flowy ✨</h1>
+                <p class="subtitle">Flow into your flow state</p>
+            </div>
+        
+            <div class="topbar-right">
+                <div class="time-box">
+                    <p id="liveTime"></p>
+                </div>
+        
+                <div class="date-box">
+                    <p id="todayDate"></p>
+                </div>
+        
+                <button id="logoutButton" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </button>
+            </div>
+        </header>
+
+        <section class="hero-card">
+            <h2 id="welcomeMessage">Hello ✨</h2>
+            <p>Take care of your mind, body, and routine today.</p>
+        </section>
+
+        <main class="widget-grid">
+            <section class="widget water-widget">
+                <div class="widget-header">
+                    <h3><i class="fa-solid fa-glass-water"></i> Water</h3>
+                </div>
+                <p>Track your water intake</p>
+                <div id="waterIcons" class="water-icons"></div>
+                <p id="waterCount">0 / 8 cups</p>
+            </section>
+
+            <section class="widget meals-widget">
+                <div class="widget-header">
+                    <h3><i class="fa-solid fa-bowl-food"></i> Meals & Snacks</h3>
+                </div>
+                <p>Log what you’ve had today</p>
+            
+                <div class="meal-grid">
+                    <label class="meal-option">
+                        <input type="checkbox" id="mealBreakfast">
+                        <span class="meal-pill">🥐 Breakfast</span>
+                    </label>
+            
+                    <label class="meal-option">
+                        <input type="checkbox" id="mealLunch">
+                        <span class="meal-pill">🥗 Lunch</span>
+                    </label>
+            
+                    <label class="meal-option">
+                        <input type="checkbox" id="mealDinner">
+                        <span class="meal-pill">🍝 Dinner</span>
+                    </label>
+            
+                    <label class="meal-option">
+                        <input type="checkbox" id="mealSnack">
+                        <span class="meal-pill">🍓 Snack</span>
+                    </label>
+                </div>
+            
+                <label class="widget-label" for="mealNotes">Meal notes</label>
+                <textarea id="mealNotes" class="meal-notes" placeholder="What did you eat today?"></textarea>
+            
+                <button class="soft-button" id="saveMealsButton">Save Meals</button>
+            
+                <div class="meal-summary" id="mealSummary">
+                    No meals logged yet 🍽️
+                </div>
+            </section>
+
+            <section class="widget sleep-widget">
+                <div class="widget-header">
+                    <h3><i class="fa-solid fa-moon"></i> Sleep</h3>
+                </div>
+                <p>Track your rest for today</p>
+            
+                <label class="widget-label" for="sleepHours">Hours slept</label>
+                <input type="number" id="sleepHours" min="0" max="24" step="0.5" placeholder="e.g. 7.5">
+            
+                <label class="widget-label" for="sleepQuality">Sleep quality</label>
+                <select id="sleepQuality" class="widget-select">
+                    <option value="">Choose one</option>
+                    <option value="Amazing">Amazing</option>
+                    <option value="Good">Good</option>
+                    <option value="Okay">Okay</option>
+                    <option value="Bad">Bad</option>
+                </select>
+            
+                <button class="soft-button" id="saveSleepButton">Save Sleep</button>
+            
+                <div class="sleep-summary" id="sleepSummary">
+                    No sleep logged yet 🌙
+                </div>
+            </section>
+
+            <section class="widget meditation-widget">
+                <div class="widget-header">
+                    <h3><i class="fa-solid fa-spa"></i> Meditation</h3>
+                </div>
+                <p>Take a few minutes to reset</p>
+            
+                <label class="widget-label" for="meditationMinutes">Minutes</label>
+                <input type="number" id="meditationMinutes" min="1" max="180" placeholder="e.g. 10">
+            
+                <button class="soft-button" id="saveMeditationButton">Log Meditation</button>
+            
+                <div class="sleep-summary" id="meditationSummary">
+                    No meditation logged yet 🫶
+                </div>
+            </section>
+
+            <section class="widget grateful-widget span-2">
+                <div class="widget-header">
+                    <h3><i class="fa-solid fa-heart"></i> Things I’m Grateful For</h3>
+                </div>
+                <p>Write down little things that made today feel soft and special</p>
+            
+                <textarea
+                    id="gratitudeInput"
+                    class="notes-area"
+                    placeholder="Today I’m grateful for..."
+                ></textarea>
+            
+                <button class="soft-button" id="saveGratitudeButton">Save Gratitude</button>
+            
+                <div class="notes-status" id="gratitudeStatus">
+                    Nothing saved yet ✨
+                </div>
+            </section>
+
+            <section class="widget calendar-widget wide">
+                <div class="widget-header">
+                    <h3><i class="fa-solid fa-calendar-days"></i> Calendar & Reminders</h3>
+                </div>
+            
+                <div class="calendar-layout">
+                    <div class="calendar-panel">
+                        <div class="calendar-top">
+                            <button class="calendar-nav" id="prevMonthButton">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+            
+                            <h4 id="calendarMonthLabel">Month Year</h4>
+            
+                            <button class="calendar-nav" id="nextMonthButton">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+            
+                        <div class="calendar-weekdays">
+                            <span>Sun</span>
+                            <span>Mon</span>
+                            <span>Tue</span>
+                            <span>Wed</span>
+                            <span>Thu</span>
+                            <span>Fri</span>
+                            <span>Sat</span>
+                        </div>
+            
+                        <div id="calendarGrid" class="calendar-grid"></div>
+                    </div>
+            
+                    <div class="reminder-form-panel">
+                        <p class="calendar-helper">Add a soft reminder for a specific date and time</p>
+            
+                        <input type="text" id="reminderInput" placeholder="What do you want to remember?">
+                        <input type="date" id="reminderDate">
+                        <input type="time" id="reminderTime">
+                        
+                        <select id="reminderColor" class="widget-select">
+                            <option value="blush">Blush</option>
+                            <option value="lavender">Lavender</option>
+                            <option value="sky">Sky</option>
+                            <option value="peach">Peach</option>
+                            <option value="sage">Sage</option>
+                            <option value="butter">Butter</option>
+                        </select>
+                        
+                        <button class="soft-button" id="addReminderButton">Add Reminder</button>
+                    </div>
+                </div>
+            
+                <div class="reminders-list-panel">
+                    <h4 class="mini-section-title">Upcoming reminders</h4>
+                    <ul id="reminderList" class="reminder-list"></ul>
+                </div>
+            </section>
+
+            <section class="widget affirmation-widget wide">
+                <div class="widget-header">
+                    <h3><i class="fa-solid fa-star"></i> Daily Affirmation</h3>
+                </div>
+                <p id="affirmationText">I am capable of building the life I want.</p>
+            </section>
+
+            <section class="widget quote-widget wide">
+                <div class="widget-header">
+                    <h3><i class="fa-solid fa-quote-left"></i> Random Quote</h3>
+                </div>
+                <p id="quoteText">Small steps every day lead to big changes.</p>
+                <button class="soft-button" id="newQuoteButton">New Quote</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
