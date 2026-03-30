@@ -1,6 +1,6 @@
 # Flowy - Full-Stack Reminder & Productivity Web Application
 
-A full-stack web application for managing personalized reminders with authentication and CRUD functionality.
+Built using Node.js and Express.js with a relational SQLite database and session-based authentication.
 
 ## Tech Stack
 - Node.js
