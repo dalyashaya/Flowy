@@ -1,4 +1,4 @@
-# Flowy – Reminder & Productivity App
+# Flowy - Full-Stack Reminder & Productivity Web Application
 
 A full-stack web application for managing personalized reminders with authentication and CRUD functionality.
 
