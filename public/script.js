@@ -1,4 +1,4 @@
-/* ================= AUTH ================= */
+/* AUTH  */
 
 async function register() {
     const usernameInput = document.getElementById('regUser');
@@ -88,7 +88,7 @@ const affirmations = [
 let waterGoal = 8;
 let waterCount = 0;
 
-/* ================= WATER ================= */
+/* WATER */
 
 async function fetchWaterCount() {
     const res = await fetch('/api/water');
@@ -144,7 +144,7 @@ async function loadWaterTracker() {
     renderWaterTracker();
 }
 
-/* ================= REMINDERS + CALENDAR ================= */
+/*  REMINDERS + CALENDAR  */
 
 let calendarDate = new Date();
 let allReminders = [];
@@ -339,7 +339,7 @@ function goToNextMonth() {
     renderCalendar();
 }
 
-/* ================= SLEEP ================= */
+/*  SLEEP  */
 
 async function saveSleep() {
     const hours = document.getElementById('sleepHours').value;
@@ -369,7 +369,7 @@ async function loadSleep() {
 
     summary.textContent = `${data.hours} hours • ${data.quality}`;
 }
-/* ================= MEDITATION ================= */
+/*  MEDITATION  */
 
 async function saveMeditation() {
     const minutes = document.getElementById('meditationMinutes').value;
@@ -399,7 +399,7 @@ async function loadMeditation() {
     summary.textContent = `${data.minutes} minutes logged`;
 }
 
-/* ================= MEALS ================= */
+/*  MEALS  */
 
 async function fetchMeals() {
     const res = await fetch('/api/meals');
@@ -495,7 +495,7 @@ function renderMealSummary() {
     summary.textContent = text.trim();
 }
 
-/* ================= DATE / TEXT ================= */
+/*  DATE / TEXT  */
 
 function setTodayDate() {
     const dateEl = document.getElementById('todayDate');
@@ -582,7 +582,7 @@ async function loadNotes() {
     }
 }
 
-/* ================= GRATITUDE ================= */
+/*  GRATITUDE  */
 
 async function loadGratitude() {
     const input = document.getElementById('gratitudeInput');
@@ -621,7 +621,7 @@ async function saveGratitude() {
     status.textContent = 'Saved for today 💗';
 }
 
-/* ================= INIT ================= */
+/*  INIT  */
 
 document.addEventListener('DOMContentLoaded', () => {
     setupAuthTabs();
@@ -630,8 +630,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setTodayDate();
     loadWaterTracker();
     loadRemindersAndCalendar();
-    renderSleepSummary();
-    renderMeditationSummary();
+    loadSleep();
+    loadMeditation();
     loadMeals();
     setRandomAffirmation();
     setRandomQuote();
